@@ -5,11 +5,11 @@ from users.models import User
 # Create your models here.
 class SeekerProfile(models.Model):
     user_account = models.ForeignKey(User, verbose_name="Account", on_delete=models.CASCADE)
-    first_name = models.CharField(verbose_name="First name", max_length=255)
-    last_name = models.CharField(verbose_name="Last name", max_length=255)
-    current_salary = models.IntegerField()
+    first_name = models.CharField(verbose_name="First name", max_length=255, null=True)
+    last_name = models.CharField(verbose_name="Last name", max_length=255, null=True)
+    current_salary = models.IntegerField(null=True)
     is_annually_monthly = models.BooleanField(default=True)
-    currency = models.CharField(max_length=50, verbose_name="Currency")
+    currency = models.CharField(max_length=50, verbose_name="Currency", null=True)
 
     def __str__(self):
         return f"account - {self.user_account}"
