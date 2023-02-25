@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model, authenticate
 from rest_framework import serializers, exceptions
 from rest_framework.fields import SerializerMethodField
 
-from users.models import UserLog
+from users.models import UserLog, UserType
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -57,6 +57,12 @@ class UserLogSerializer(serializers.ModelSerializer):
     def get_last_login(self, instance: UserLog):
         print("here")
         return instance.user_account.last_login
+
+
+class UserTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserType
+        fields = "__all__"
 
 
 class CustomAuthTokenSerializer(serializers.Serializer):

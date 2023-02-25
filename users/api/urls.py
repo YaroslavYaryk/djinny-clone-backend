@@ -1,6 +1,7 @@
 from django.urls import re_path, path
 from rest_framework.authtoken.views import obtain_auth_token
-from .views import CreateUserAPIView, LogoutUserAPIView, UserApiView, CustomObtainAuthToken, UserLogAPIView
+from .views import CreateUserAPIView, LogoutUserAPIView, UserApiView, CustomObtainAuthToken, UserLogAPIView, \
+    UserTypeAPIView
 
 urlpatterns = [
     re_path(r"^auth/login/$", CustomObtainAuthToken.as_view(), name="auth_user_login"),
@@ -9,5 +10,6 @@ urlpatterns = [
     path("user/profile/", UserApiView.as_view(), name="user_profile"),
     path("user/profile/edit/", UserApiView.as_view(), name="user_profile"),
     path("user/log/", UserLogAPIView.as_view(), name="user_log"),
+    path("user/types/", UserTypeAPIView.as_view(), name="get_all_user_types"),
 
 ]

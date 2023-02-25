@@ -8,10 +8,11 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 from rest_framework.views import APIView
 from .serializers import CreateUserSerializer, UserSerializer, CustomAuthTokenSerializer, UserEditSerializer, \
-    UserLogSerializer
+    UserLogSerializer, UserTypeSerializer
 from django.db.utils import IntegrityError
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import update_last_login
+from users.models import UserType
 
 
 @api_view(('GET',))
@@ -82,4 +83,11 @@ class UserLogAPIView(APIView):
     def get(self, request):
         instance = request.user.user_account_log
         serializer = UserLogSerializer(instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class UserTypeAPIView(APIView):
+    def get(self, request):
+        queryset = UserType.objects.all()
+        serializer = UserTypeSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

@@ -25,4 +25,4 @@ class CompanyImage(models.Model):
     company_image = models.ImageField(upload_to="company_images/", blank=True)
 
     def __str__(self):
-        return f"company - {self.company.name}"
+        return f"company - {self.company.company_name}"
