@@ -17,13 +17,13 @@ class SeekerProfile(models.Model):
 
 class EducationDetail(models.Model):
     profile_account = models.ForeignKey(SeekerProfile, on_delete=models.CASCADE, related_name="seeker_educations")
-    certificate_degree_name = models.CharField(max_length=50)
-    major = models.CharField(max_length=50)
-    institute_university_name = models.CharField(max_length=50)
-    starting_date = models.DateField()
-    completion_date = models.DateField()
-    percentage = models.FloatField()
-    cgpa = models.FloatField()
+    certificate_degree_name = models.CharField(max_length=50, null=True)
+    major = models.CharField(max_length=50, null=True)
+    institute_university_name = models.CharField(max_length=50, null=True)
+    starting_date = models.DateField(null=True)
+    completion_date = models.DateField(null=True)
+    percentage = models.FloatField(null=True)
+    cgpa = models.FloatField(null=True)
 
     class Meta:
         unique_together = ["profile_account", "certificate_degree_name", "major"]
@@ -34,15 +34,15 @@ class EducationDetail(models.Model):
 
 class ExperienceDetails(models.Model):
     profile_account = models.ForeignKey(SeekerProfile, on_delete=models.CASCADE, related_name="seeker_experiences")
-    is_current_job = models.BooleanField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-    job_title = models.CharField(max_length=50, verbose_name="Job title")
-    company_name = models.CharField(max_length=50, verbose_name="Company name")
-    job_location_city = models.CharField(max_length=50, verbose_name="City")
-    job_location_state = models.CharField(max_length=50, verbose_name="state")
-    job_location_country = models.CharField(max_length=50, verbose_name="country")
-    description = models.TextField(max_length=4000)
+    is_current_job = models.BooleanField(null=True)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+    job_title = models.CharField(max_length=50, verbose_name="Job title", null=True)
+    company_name = models.CharField(max_length=50, verbose_name="Company name", null=True)
+    job_location_city = models.CharField(max_length=50, verbose_name="City", null=True)
+    job_location_state = models.CharField(max_length=50, verbose_name="state", null=True)
+    job_location_country = models.CharField(max_length=50, verbose_name="country", null=True)
+    description = models.TextField(max_length=4000, null=True)
 
     class Meta:
         unique_together = ["profile_account", "start_date", "end_date"]

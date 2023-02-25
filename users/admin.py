@@ -21,14 +21,14 @@ class UserAdmin(BaseUserAdmin):
         (
             "Personal info",
             {
-                "fields": (
-                    "date_of_birth",
-                    "gender",
-                    "contact_number",
-                    "sms_notification_active",
-                    "email_notification_active",
-                    "user_image",
-                )
+                "fields": ("user_type",
+                           "date_of_birth",
+                           "gender",
+                           "contact_number",
+                           "sms_notification_active",
+                           "email_notification_active",
+                           "user_image",
+                           )
             },
         ),
         ("Login info", {"fields": ("last_login",)}),
