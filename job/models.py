@@ -7,17 +7,18 @@ from seeker.models import SkillSet
 # Create your models here.
 class JobPost(models.Model):
     posted_by = models.ForeignKey(User, verbose_name="Account", on_delete=models.CASCADE)
+    job_title = models.CharField(max_length=50, null=True)
     job_type = models.ForeignKey("JobType", on_delete=models.CASCADE)
     company = models.ForeignKey(Company, verbose_name="Company", on_delete=models.CASCADE)
     is_company_name_hidden = models.BooleanField(default=False)
     created_date = models.DateField(auto_now=True)
-    job_description = models.TextField(max_length=500)
-    job_location = models.ForeignKey("JobLocation", on_delete=models.CASCADE)
+    job_description = models.TextField(max_length=500, null=True)
     is_active = models.BooleanField(default=True)
 
 
 class JobType(models.Model):
-    job_type = models.CharField(max_length=20)
+    job_type = models.CharField(max_length=50)
+    job_type_english = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return f"{self.job_type}"
@@ -45,6 +46,7 @@ class JobPostSkillSet(models.Model):
 
 
 class JobLocation(models.Model):
+    job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE, null=True)
     street_address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
@@ -52,4 +54,4 @@ class JobLocation(models.Model):
     zip = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"city - {self.city}, country - {self.country}"
+        return f"job - {self.job_post.job_title}, city - {self.city}, country - {self.country}"
