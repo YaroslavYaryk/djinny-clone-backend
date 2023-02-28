@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import User
 from company.models import Company
-from seeker.models import SkillSet
+from seeker.models import SkillSet, SeekerProfile
 
 
 # Create your models here.
@@ -55,3 +55,30 @@ class JobLocation(models.Model):
 
     def __str__(self):
         return f"job - {self.job_post.job_title}, city - {self.city}, country - {self.country}"
+
+
+class JobConversation(models.Model):
+    job = models.ForeignKey(JobPost, on_delete=models.CASCADE, null=True)
+    employer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="conversation_employer")
+    seeker = models.ForeignKey(User, on_delete=models.CASCADE, related_name="conversation_seeker")
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"job - {self.job.job_title}; ({self.employer.email}, {self.seeker.email})"
+
+
+class ConversationMessage(models.Model):
+    conversation = models.ForeignKey(JobConversation, on_delete=models.CASCADE)
+    message = models.CharField(max_length=500)
+    from_user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="messages_from_me"
+    )
+    to_user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="messages_to_me"
+    )
+    timestamp = models.DateTimeField(auto_now_add=True)
+    read = models.BooleanField(default=False)
+    parent = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return f"From {self.from_user.email} to {self.to_user.email}: {self.message} [{self.timestamp}]"

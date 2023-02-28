@@ -25,3 +25,9 @@ class JobLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobLocation
         fields = "__all__"
+
+
+class JobPostSkillSetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JobPostSkillSet
+        fields = "__all__"

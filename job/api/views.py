@@ -6,9 +6,10 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 
 from seeker.api.services import static_fuctions
-from .services import handle_job_type_and_activity, handle_job_post, handle_job_location
+from .services import handle_job_type_and_activity, handle_job_post, handle_job_location, handle_job_skillset
 
-from .serializers import JobTypeSerializer, JobPostSerializer, JobPostActivitySerializer, JobLocationSerializer
+from .serializers import JobTypeSerializer, JobPostSerializer, JobPostActivitySerializer, JobLocationSerializer, \
+    JobPostSkillSetSerializer
 
 
 class BaseAPIView(APIView):
@@ -124,6 +125,37 @@ class JobLocationAPIView(BaseAPIView):
     def delete(self, request, pk, location_id):
         try:
             handle_job_location.delete_job_location(pk, location_id, request.user)
+            return Response({"message": "successful"}, status=status.HTTP_200_OK)
+        except Exception as ex:
+            return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
+
+
+class JobSkillSetAPIView(BaseAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk):
+        queryset = handle_job_skillset.get_job_skillset(pk)
+        serializer = JobPostSkillSetSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk):
+        data = handle_job_skillset.get_class_list_from_js(request.data)
+        if data:
+            handle_job_skillset.add_skillsets_to_job(data, pk)
+            return Response({"message": "successful"}, status=status.HTTP_201_CREATED)
+        return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
+
+    def put(self, request, pk, ):
+        data = handle_job_skillset.get_class_list_from_js(request.data)
+        if data:
+            handle_job_skillset.delete_job_skillset(pk)
+            handle_job_skillset.add_skillsets_to_job(data, pk)
+            return Response({"message": "successful"}, status=status.HTTP_201_CREATED)
+        return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
+
+    def delete(self, request, pk):
+        try:
+            handle_job_skillset.delete_job_skillset(pk)
             return Response({"message": "successful"}, status=status.HTTP_200_OK)
         except Exception as ex:
             return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
