@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "rest_framework.authtoken",
+    "drf_yasg",
 
     # apps
     "company.apps.CompanyConfig",

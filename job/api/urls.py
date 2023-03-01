@@ -1,5 +1,6 @@
 from django.urls import path, include
-from .views import JobTypeAPIView, JobPostAPIView, JobActivityAPIView, JobLocationAPIView, JobSkillSetAPIView
+from .views import JobTypeAPIView, JobPostAPIView, JobActivityAPIView, JobLocationAPIView, JobSkillSetAPIView, \
+    JobConversationAPIView
 
 urlpatterns = [
     # job type
@@ -28,5 +29,13 @@ urlpatterns = [
     path("job-post/<pk>/skillset/create/", JobSkillSetAPIView.as_view(), name="create_job_skillset"),
     path("job-post/<pk>/skillset/edit/", JobSkillSetAPIView.as_view(), name="edit_job_skillset"),
     path("job-post/<pk>/skillset/delete/", JobSkillSetAPIView.as_view(), name="delete_job_skillset"),
+
+    # conversation
+    path("conversation/all/", JobConversationAPIView.as_view(), name="get_all_conversations"),
+    path("conversation/one/<id>/", JobConversationAPIView.as_view(), name="get_one_conversations"),
+    path("conversation/job/<job_id>/create/<user_type>/<user_id>/", JobConversationAPIView.as_view(),
+         name="create_one_conversations"),
+    path("conversation/one/<conversation_id>/delete/", JobConversationAPIView.as_view(),
+         name="delete_one_conversations"),
 
 ]

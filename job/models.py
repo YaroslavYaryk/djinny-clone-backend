@@ -15,6 +15,9 @@ class JobPost(models.Model):
     job_description = models.TextField(max_length=500, null=True)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f"{self.id} - title: {self.job_title} - creator: {self.posted_by.email}"
+
 
 class JobType(models.Model):
     job_type = models.CharField(max_length=50)

@@ -6,10 +6,12 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 
 from seeker.api.services import static_fuctions
-from .services import handle_job_type_and_activity, handle_job_post, handle_job_location, handle_job_skillset
+from .services import handle_job_type_and_activity, handle_job_post, handle_job_location, handle_job_skillset, \
+    handle_conversation
 
 from .serializers import JobTypeSerializer, JobPostSerializer, JobPostActivitySerializer, JobLocationSerializer, \
-    JobPostSkillSetSerializer
+    JobPostSkillSetSerializer, JobConversationSerializer, ConversationMessageSerializer, JobConversationPostSerializer
+from .services.constants import USER_TYPES
 
 
 class BaseAPIView(APIView):
@@ -156,6 +158,36 @@ class JobSkillSetAPIView(BaseAPIView):
     def delete(self, request, pk):
         try:
             handle_job_skillset.delete_job_skillset(pk)
+            return Response({"message": "successful"}, status=status.HTTP_200_OK)
+        except Exception as ex:
+            return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
+
+
+class JobConversationAPIView(BaseAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, **kwargs):
+        if kwargs:
+            conversation = handle_conversation.get_conversation_by_id(kwargs["id"], request.user)
+            serializer = JobConversationSerializer(instance=conversation)
+        else:
+            queryset = handle_conversation.get_conversations_for_user(request.user)
+            serializer = JobConversationSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, job_id, user_type: USER_TYPES, user_id):
+        data = handle_conversation.get_data_for_conversation(job_id, user_type, user_id, request.user)
+
+        serializer = JobConversationPostSerializer(data=data)
+        if serializer.is_valid():
+            instance, _ = handle_conversation.get_or_create_conversation(serializer)
+            return Response({**serializer.data, "id": instance.id}, status=status.HTTP_201_CREATED)
+        message = static_fuctions.get_errors_as_string(serializer)
+        return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
+
+    def delete(self, request, conversation_id):
+        try:
+            handle_conversation.delete_conversation(conversation_id, request.user)
             return Response({"message": "successful"}, status=status.HTTP_200_OK)
         except Exception as ex:
             return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
