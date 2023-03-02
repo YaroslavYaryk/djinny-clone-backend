@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import JobTypeAPIView, JobPostAPIView, JobActivityAPIView, JobLocationAPIView, JobSkillSetAPIView, \
-    JobConversationAPIView
+    JobConversationAPIView, ConversationMessageAPIView
 
 urlpatterns = [
     # job type
@@ -37,5 +37,17 @@ urlpatterns = [
          name="create_one_conversations"),
     path("conversation/one/<conversation_id>/delete/", JobConversationAPIView.as_view(),
          name="delete_one_conversations"),
+
+    # conversation message
+    path("conversation/<pk>/messages/all/", ConversationMessageAPIView.as_view(),
+         name="get_all_messages_for_conversation"),
+    path("conversation/<pk>/messages/one/<message_id>/", ConversationMessageAPIView.as_view(),
+         name="get_one_message_for_conversation"),
+    path("conversation/<pk>/messages/create/", ConversationMessageAPIView.as_view(),
+         name="add_message_to_conversation"),
+    path("conversation/<pk>/messages/<message_id>/edit/", ConversationMessageAPIView.as_view(),
+         name="edit_message_to_conversation"),
+    path("conversation/<pk>/messages/<message_id>/delete/", ConversationMessageAPIView.as_view(),
+         name="delete_message_to_conversation"),
 
 ]

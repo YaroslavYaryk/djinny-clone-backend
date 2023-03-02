@@ -43,3 +43,15 @@ def get_or_create_conversation(serializer):
 
 def delete_conversation(conversation_id, user):
     get_conversation_by_id(conversation_id, user).delete()
+
+
+def get_message_by_id(message_id):
+    return get_object_or_404(ConversationMessage, pk=message_id)
+
+
+def get_messages_for_conversation(conversation_id):
+    return ConversationMessage.objects.filter(conversation__id=conversation_id)
+
+
+def delete_message(message_id):
+    get_message_by_id(message_id).delete()

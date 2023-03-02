@@ -1,4 +1,5 @@
 from django.http import Http404
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
@@ -188,6 +189,48 @@ class JobConversationAPIView(BaseAPIView):
     def delete(self, request, conversation_id):
         try:
             handle_conversation.delete_conversation(conversation_id, request.user)
+            return Response({"message": "successful"}, status=status.HTTP_200_OK)
+        except Exception as ex:
+            return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
+
+
+class ConversationMessageAPIView(BaseAPIView, LimitOffsetPagination):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk, format=None, **kwargs):
+        if kwargs.get("message_id"):
+            message = handle_conversation.get_message_by_id(kwargs.get("message_id"))
+            serializer = ConversationMessageSerializer(instance=message)
+        else:
+            queryset = handle_conversation.get_messages_for_conversation(pk)
+            results = self.paginate_queryset(queryset, request, view=self)
+
+            serializer = ConversationMessageSerializer(results, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk):
+        data = {**request.data, "conversation": pk}
+        serializer = ConversationMessageSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        message = static_fuctions.get_errors_as_string(serializer)
+        return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
+
+    def put(self, request, pk, message_id):
+        message = handle_conversation.get_message_by_id(message_id)
+        serializer = ConversationMessageSerializer(instance=message, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        message = static_fuctions.get_errors_as_string(serializer)
+        return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
+
+    def delete(self, request, pk, message_id):
+        try:
+            handle_conversation.delete_message(message_id)
             return Response({"message": "successful"}, status=status.HTTP_200_OK)
         except Exception as ex:
             return Response({"message", str(ex)}, status=status.HTTP_403_FORBIDDEN)
