@@ -8,6 +8,7 @@ from rest_framework.decorators import api_view, permission_classes
 from .serializers import CompanySerializer, CompanyImagesSerializer, BusinessStreamSerializer
 from .services import handle_company
 from seeker.api.services import static_fuctions
+from job.api.serializers import JobPostSerializer
 
 
 class BaseAPIView(APIView):
@@ -103,4 +104,13 @@ class BusinessStreamStreamAPIView(BaseAPIView):
     def get(self, request):
         business_stream_queryset = handle_company.get_business_stream_queryset()
         serializer = BusinessStreamSerializer(business_stream_queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CompanyJobAPIView(BaseAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk):
+        queryset = handle_company.get_jobs_for_company(pk)
+        serializer = JobPostSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

@@ -9,7 +9,7 @@ class JobPost(models.Model):
     posted_by = models.ForeignKey(User, verbose_name="Account", on_delete=models.CASCADE)
     job_title = models.CharField(max_length=50, null=True)
     job_type = models.ForeignKey("JobType", on_delete=models.CASCADE)
-    company = models.ForeignKey(Company, verbose_name="Company", on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, verbose_name="Company", on_delete=models.CASCADE, related_name="company_jobs")
     is_company_name_hidden = models.BooleanField(default=False)
     created_date = models.DateField(auto_now=True)
     job_description = models.TextField(max_length=500, null=True)

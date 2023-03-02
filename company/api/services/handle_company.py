@@ -55,3 +55,8 @@ def delete_all_images(company_id):
 
 def get_business_stream_queryset():
     return BusinessStream.objects.all()
+
+
+def get_jobs_for_company(company_id):
+    company = get_company_by_id(company_id)
+    return company.company_jobs.all()
