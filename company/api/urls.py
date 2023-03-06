@@ -1,5 +1,6 @@
 from django.urls import path, include
-from .views import CompanyAPIView, CompanyImagesAPIView, delete_all_company_images, BusinessStreamStreamAPIView
+from .views import CompanyAPIView, CompanyImagesAPIView, delete_all_company_images, BusinessStreamStreamAPIView, \
+    CompanyJobAPIView
 
 urlpatterns = [
     # company
@@ -12,11 +13,13 @@ urlpatterns = [
     # company images
     path("company/<pk>/images/", CompanyImagesAPIView.as_view(), name="get_company_images"),
     path("company/<pk>/images/add/", CompanyImagesAPIView.as_view(), name="add_company_images"),
-    path("company/<pk>/images/add/", CompanyImagesAPIView.as_view(), name="add_company_images"),
     path("company/<pk>/images/<image_id>/delete/", CompanyImagesAPIView.as_view(), name="delete_company_image"),
     path("company/<pk>/images/delete-all/", delete_all_company_images, name="delete_all_company_images"),
 
-    #  BusinessStream
+    #  business stream
     path("business-stream/all/", BusinessStreamStreamAPIView.as_view(), name="get_all_business_streams"),
+
+    # company jobs
+    path("company/<pk>/jobs/", CompanyJobAPIView.as_view(), name="get_jobs_for_company")
 
 ]
