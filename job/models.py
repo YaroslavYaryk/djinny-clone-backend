@@ -11,6 +11,7 @@ class JobPost(models.Model):
     job_type = models.ForeignKey("JobType", on_delete=models.CASCADE)
     company = models.ForeignKey(Company, verbose_name="Company", on_delete=models.CASCADE, related_name="company_jobs")
     is_company_name_hidden = models.BooleanField(default=False)
+    experience_years_required = models.IntegerField(null=True)
     created_date = models.DateField(auto_now=True)
     job_description = models.TextField(max_length=500, null=True)
     is_active = models.BooleanField(default=True)
@@ -45,7 +46,7 @@ class JobPostSkillSet(models.Model):
         unique_together = ["skill_set", "job_post"]
 
     def __str__(self):
-        return f"job - {self.job_post},  skill set - {self.skill_set}"
+        return f"job - {self.job_post},  skill set - {self.skill_set}, level - {self.skill_level}"
 
 
 class JobLocation(models.Model):

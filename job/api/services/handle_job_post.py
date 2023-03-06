@@ -17,3 +17,11 @@ def get_job_posts_for_user(user):
 
 def delete_job_post(pk, user):
     get_job_post_by_id_for_user(pk, user).delete()
+
+
+def get_jobs_by_list_ids(list_ids: list):
+    return JobPost.objects.filter(id__in=list_ids)
+
+
+def get_all_jobs():
+    return JobPost.objects.all()
