@@ -171,9 +171,28 @@ class SeekerSkillsetAPIView(BaseAPIView):
             return Response({"message": ex}, status=status.HTTP_403_FORBIDDEN)
 
 
-class RecommendedJobsAPIView(ListAPIView):
+class BaseListView(ListAPIView):
+
+    def dispatch(self, request, *args, **kwargs):
+        req = self.initialize_request(request, *args, **kwargs)
+        response = super(BaseListView, self).dispatch(request, *args, **kwargs)
+        if not req.user.user_type.has_additional_profile:
+            raise Http404
+
+        return response
+
+
+class RecommendedJobsAPIView(BaseListView):
     serializer_class = JobPostSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return handle_seeker_job.get_recommended_jobs_for_seeker(self.request.user)
+
+
+class SearchJobsAPIView(BaseListView):
+    serializer_class = JobPostSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return handle_seeker_job.get_searched_jobs(self.request.data, self.request.user)

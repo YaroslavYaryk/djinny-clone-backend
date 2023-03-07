@@ -25,3 +25,23 @@ def get_jobs_by_list_ids(list_ids: list):
 
 def get_all_jobs():
     return JobPost.objects.all()
+
+
+def filter_job_queryset_by_title_job(queryset, title):
+    return queryset.filter(job_title__icontains=title)
+
+
+def filter_job_queryset_by_skillset_ids(queryset, data):
+    return queryset.filter(job_post_skill__skill_set__id__in=data).distinct()
+
+
+def filter_job_queryset_by_experience(queryset, data):
+    return queryset.filter(experience_years_required__gte=data["bottom"], experience_years_required__lte=data["top"])
+
+
+def filter_job_queryset_by_salary(queryset, data):
+    return queryset.filter(salary__gte=data["bottom"], salary__lte=data["top"])
+
+
+def filter_job_queryset_by_company_type(queryset, data):
+    return queryset.filter(company__business_stream_id=data)

@@ -12,6 +12,7 @@ class JobPost(models.Model):
     company = models.ForeignKey(Company, verbose_name="Company", on_delete=models.CASCADE, related_name="company_jobs")
     is_company_name_hidden = models.BooleanField(default=False)
     experience_years_required = models.IntegerField(null=True)
+    salary = models.IntegerField(null=True)
     created_date = models.DateField(auto_now=True)
     job_description = models.TextField(max_length=500, null=True)
     is_active = models.BooleanField(default=True)
