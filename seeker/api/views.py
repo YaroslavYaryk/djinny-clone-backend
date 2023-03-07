@@ -3,11 +3,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 
 from .serializers import SeekerProfileSerializer, EducationDetailSerializer, ExperienceDetailSerializer, \
     SkillSetSerializer, SeekerSkillsetGetSerializer
 from .services import handle_seeker_profile, handle_seeker_education, static_fuctions, handle_seeker_experience, \
-    handle_skillset
+    handle_skillset, handle_seeker_job
+from job.api.serializers import JobPostSerializer
 
 
 class BaseAPIView(APIView):
@@ -167,3 +169,30 @@ class SeekerSkillsetAPIView(BaseAPIView):
             return Response({"message": "Successful"}, status=status.HTTP_200_OK)
         except Exception as ex:
             return Response({"message": ex}, status=status.HTTP_403_FORBIDDEN)
+
+
+class BaseListView(ListAPIView):
+
+    def dispatch(self, request, *args, **kwargs):
+        req = self.initialize_request(request, *args, **kwargs)
+        response = super(BaseListView, self).dispatch(request, *args, **kwargs)
+        if not req.user.user_type.has_additional_profile:
+            raise Http404
+
+        return response
+
+
+class RecommendedJobsAPIView(BaseListView):
+    serializer_class = JobPostSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return handle_seeker_job.get_recommended_jobs_for_seeker(self.request.user)
+
+
+class SearchJobsAPIView(BaseListView):
+    serializer_class = JobPostSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return handle_seeker_job.get_searched_jobs(self.request.data, self.request.user)

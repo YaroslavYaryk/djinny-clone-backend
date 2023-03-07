@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import SeekerProfileAPIView, EducationDetailsAPIView, ExperienceDetailsAPIView, SkillSetAPIView, \
-    SeekerSkillsetAPIView
+    SeekerSkillsetAPIView, RecommendedJobsAPIView, SearchJobsAPIView
 
 urlpatterns = [
     # profile
@@ -30,4 +30,10 @@ urlpatterns = [
     path("seeker_skillset/create/", SeekerSkillsetAPIView.as_view(), name="create_seeker_skillset"),
     path("seeker_skillset/edit/", SeekerSkillsetAPIView.as_view(), name="edit_seeker_skillset"),
     path("seeker_skillset/delete/", SeekerSkillsetAPIView.as_view(), name="delete_seeker_skillset"),
+
+    # recommended jobs
+    path("seeker/recommended-jobs/", RecommendedJobsAPIView.as_view(), name="get_seeker_recommended_jobs"),
+
+    # rearch jobs
+    path("seeker/jobs/search/", SearchJobsAPIView.as_view(), name="get_seeker_searched_jobs")
 ]

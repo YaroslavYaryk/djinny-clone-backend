@@ -26,3 +26,10 @@ def add_skillsets_to_job(data, pk):
 
 def delete_job_skillset(pk):
     get_job_skillset(pk).delete()
+
+
+def get_job_skillset_by_name(name):
+    try:
+        return JobPostSkillSet.objects.get(skill_set__name=name)
+    except Exception:
+        return None

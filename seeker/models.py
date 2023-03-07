@@ -55,7 +55,7 @@ class SkillSet(models.Model):
     name = models.CharField(max_length=50, verbose_name="skill set name")
 
     def __str__(self):
-        return f"name - {self.name}"
+        return f"id - {self.id}; name - {self.name}"
 
 
 class SeekerSkillSet(models.Model):
