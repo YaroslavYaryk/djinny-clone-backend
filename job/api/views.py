@@ -11,7 +11,8 @@ from .services import handle_job_type_and_activity, handle_job_post, handle_job_
     handle_conversation
 
 from .serializers import JobTypeSerializer, JobPostSerializer, JobPostActivitySerializer, JobLocationSerializer, \
-    JobPostSkillSetSerializer, JobConversationSerializer, ConversationMessageSerializer, JobConversationPostSerializer
+    JobPostSkillSetSerializer, JobConversationSerializer, ConversationMessageSerializer, JobConversationPostSerializer, \
+    JobPostGETSkillSetSerializer
 from .services.constants import USER_TYPES
 
 
@@ -46,7 +47,6 @@ class JobPostAPIView(BaseAPIView):
     def get(self, request, **kwargs):
         if kwargs:
             job_post = handle_job_post.get_job_post_by_id_for_user(kwargs["id"], request.user)
-            print(job_post)
             serializer = JobPostSerializer(instance=job_post)
         else:
             queryset = handle_job_post.get_job_posts_for_user(request.user)
@@ -138,21 +138,21 @@ class JobSkillSetAPIView(BaseAPIView):
 
     def get(self, request, pk):
         queryset = handle_job_skillset.get_job_skillset(pk)
-        serializer = JobPostSkillSetSerializer(queryset, many=True)
+        serializer = JobPostGETSkillSetSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, pk):
-        data = handle_job_skillset.get_class_list_from_js(request.data)
+        data = handle_job_skillset.get_class_list_from_js(request.data, pk)
         if data:
-            handle_job_skillset.add_skillsets_to_job(data, pk)
+            handle_job_skillset.add_skillsets_to_job(data)
             return Response({"message": "successful"}, status=status.HTTP_201_CREATED)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
     def put(self, request, pk, ):
-        data = handle_job_skillset.get_class_list_from_js(request.data)
+        data = handle_job_skillset.get_class_list_from_js(request.data, pk)
         if data:
             handle_job_skillset.delete_job_skillset(pk)
-            handle_job_skillset.add_skillsets_to_job(data, pk)
+            handle_job_skillset.add_skillsets_to_job(data)
             return Response({"message": "successful"}, status=status.HTTP_201_CREATED)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
@@ -219,7 +219,7 @@ class ConversationMessageAPIView(BaseAPIView, LimitOffsetPagination):
         message = static_fuctions.get_errors_as_string(serializer)
         return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
 
-    def put(self, request, pk, message_id):
+    def patch(self, request, pk, message_id):
         message = handle_conversation.get_message_by_id(message_id)
         serializer = ConversationMessageSerializer(instance=message, data=request.data, partial=True)
         if serializer.is_valid():

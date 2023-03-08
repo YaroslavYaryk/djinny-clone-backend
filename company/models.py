@@ -12,7 +12,7 @@ class Company(models.Model):
     company_website_url = models.CharField(verbose_name="website url", max_length=500, null=True)
 
     def __str__(self):
-        return f"name - {self.company_name}, establishment date - {self.establishment_date}"
+        return f"{self.id} - name - {self.company_name}, establishment date - {self.establishment_date}"
 
 
 class BusinessStream(models.Model):

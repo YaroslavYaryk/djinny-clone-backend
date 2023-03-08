@@ -93,7 +93,7 @@ class UserType(models.Model):
     has_additional_profile = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.user_type_name}"
+        return f"{self.id} - {self.user_type_name}"
 
 
 class UserLog(models.Model):

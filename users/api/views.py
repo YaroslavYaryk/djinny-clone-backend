@@ -76,7 +76,7 @@ class UserApiView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({"message": serializer.error_messages}, status=status.HTTP_403_FORBIDDEN)
+        return Response({"message": serializer.errors}, status=status.HTTP_403_FORBIDDEN)
 
 
 class UserLogAPIView(APIView):

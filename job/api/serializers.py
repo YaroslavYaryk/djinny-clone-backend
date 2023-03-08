@@ -28,6 +28,17 @@ class JobLocationSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class JobPostGETSkillSetSerializer(serializers.ModelSerializer):
+    skillset_name = SerializerMethodField()
+
+    class Meta:
+        model = JobPostSkillSet
+        fields = "__all__"
+
+    def get_skillset_name(self, instance):
+        return instance.skill_set.name
+
+
 class JobPostSkillSetSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobPostSkillSet

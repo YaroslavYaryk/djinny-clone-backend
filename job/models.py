@@ -69,7 +69,7 @@ class JobConversation(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"job - {self.job.job_title}; ({self.employer.email}, {self.seeker.email})"
+        return f"job - {self.job.id}; ({self.employer.email}, {self.seeker.email})"
 
 
 class ConversationMessage(models.Model):
