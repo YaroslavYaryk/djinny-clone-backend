@@ -1,0 +1,5593 @@
+{
+	"info": {
+		"_postman_id": "8d11dae5-059a-4e60-867c-31580af15cf3",
+		"name": "Djinny backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18407169"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user123\",\n    \"user_type_id\": 1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user123\",\n    \"user_type_id\": 1 \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/auth/register/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "response for employer\n{\n    \"email\": \"user@user.com\",\n    \"user_type_id\": 1, #employer\n    \"token\": \"d4a12fb429af62e3ce93a025fe61d6bd9b1944d3\"\n}\n\nresponse for seeker\n{\n    \"email\": \"user@user.com\",\n    \"user_type_id\": 2, #seeker\n    \"token\": \"d4a12fb429af62e3ce93a025fe61d6bd9b1944d3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": \"user123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/auth/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"token\": \"d4a12fb429af62e3ce93a025fe61d6bd9b1944d3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "profile view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/profile/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile view",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/profile/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"profile",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 20,\n    \"last_login\": \"2023-03-08T17:17:54.228989Z\",\n    \"email\": \"user@user.com\",\n    \"date_of_birth\": null,\n    \"gender\": \"\",\n    \"is_active\": true,\n    \"contact_number\": \"\",\n    \"sms_notification_active\": false,\n    \"email_notification_active\": false,\n    \"user_image\": null,\n    \"registration_date\": \"2023-03-08T17:14:04.146988Z\",\n    \"staff\": false,\n    \"admin\": false,\n    \"user_type\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "profile edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "user@user.net",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "2003-03-31",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "contact_number",
+									"value": "380980000000",
+									"type": "text"
+								},
+								{
+									"key": "sms_notification_active",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "email_notification_active",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "user_image",
+									"type": "file",
+									"src": "/home/yaroslav/Pictures/9154b59c02887a5eb398be3dce7531b52295c9e9.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/profile/edit/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"profile",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile edit",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user@user.net",
+											"type": "text"
+										},
+										{
+											"key": "date_of_birth",
+											"value": "2003-03-31",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "Male",
+											"type": "text"
+										},
+										{
+											"key": "is_active",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "contact_number",
+											"value": "380980000000",
+											"type": "text"
+										},
+										{
+											"key": "sms_notification_active",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "email_notification_active",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "user_image",
+											"type": "file",
+											"src": "/home/yaroslav/Pictures/9154b59c02887a5eb398be3dce7531b52295c9e9.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/profile/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"profile",
+										"edit",
+										""
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "user@user.net",
+											"disabled": true
+										},
+										{
+											"key": "date_of_birth",
+											"value": "2003-03-31",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "Male",
+											"disabled": true
+										},
+										{
+											"key": "is_active",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "contact_number",
+											"value": "380980000000",
+											"disabled": true
+										},
+										{
+											"key": "sms_notification_active",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "email_notification_active",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "aut",
+											"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+											"disabled": true
+										},
+										{
+											"key": "user_image",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 20,\n    \"email\": \"user@user.net\",\n    \"date_of_birth\": \"2003-03-31\",\n    \"gender\": \"Male\",\n    \"is_active\": true,\n    \"contact_number\": \"380980000000\",\n    \"sms_notification_active\": false,\n    \"email_notification_active\": false,\n    \"user_image\": \"/media/images/users/9154b59c02887a5eb398be3dce7531b52295c9e9.jpg\",\n    \"user_type\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "user logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/log/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"log",
+								""
+							],
+							"query": [
+								{
+									"key": "aut",
+									"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user logs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/log/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"log",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"last_login\": \"2023-03-08T17:17:54.228989Z\",\n    \"last_job_apply_date\": null,\n    \"user_account\": 20\n}"
+						}
+					]
+				},
+				{
+					"name": "user types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/api/types/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"api",
+								"types",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user types",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/users/api/types/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"api",
+										"types",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"user_type_name\": \"Employer\",\n        \"has_additional_profile\": false\n    },\n    {\n        \"id\": 2,\n        \"user_type_name\": \"Seeker\",\n        \"has_additional_profile\": true\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "company",
+					"item": [
+						{
+							"name": "add company",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"business_stream\": 2,\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/companies/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"companies",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add company",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"business_stream\": 2,\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/companies/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"companies",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\",\n    \"user_account\": 20,\n    \"business_stream\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "get my all companies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/companies/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"companies",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get my all companies",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/companies/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"companies",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 6,\n        \"company_name\": \"company_name\",\n        \"profile_description\": \"profile_description\",\n        \"establishment_date\": \"2020-03-25\",\n        \"company_website_url\": \"www.company_name.com\",\n        \"user_account\": 20,\n        \"business_stream\": 2\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one my company",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/companies/one/6/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"companies",
+										"one",
+										"6",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one my company",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/companies/one/6/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"companies",
+												"one",
+												"6",
+												""
+											],
+											"query": [
+												{
+													"key": "auta",
+													"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\",\n    \"user_account\": 20,\n    \"business_stream\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "company edit",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"business_stream\": 2,\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/companies/6/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"companies",
+										"6",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "company edit",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"business_stream\": 2,\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/companies/6/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"companies",
+												"6",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"company_name\": \"company_name\",\n    \"profile_description\": \"profile_description\",\n    \"business_stream\": 2,\n    \"establishment_date\": \"2020-03-25\",\n    \"company_website_url\": \"www.company_name.com\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete company",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/companies/6/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"companies",
+										"6",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete company",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/companies/6/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"companies",
+												"6",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\"message\": \"successful\"}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "company images",
+					"item": [
+						{
+							"name": "add company images",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image1",
+											"type": "file",
+											"src": "/home/yaroslav/Pictures/4475e73c885921925f61fcf123c7c8c1f93e1c0c.jpg"
+										},
+										{
+											"key": "image2",
+											"type": "file",
+											"src": "/home/yaroslav/Pictures/1209999.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/company/6/images/add/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"company",
+										"6",
+										"images",
+										"add",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add company images",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image1",
+													"type": "file",
+													"src": "/home/yaroslav/Pictures/4475e73c885921925f61fcf123c7c8c1f93e1c0c.jpg"
+												},
+												{
+													"key": "image2",
+													"type": "file",
+													"src": "/home/yaroslav/Pictures/1209999.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/company/6/images/add/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"company",
+												"6",
+												"images",
+												"add",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"message\": \"successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "get company images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/company/6/images/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"company",
+										"6",
+										"images",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get company images",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/company/6/images/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"company",
+												"6",
+												"images",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 4,\n        \"company_image\": \"/media/company_images/4475e73c885921925f61fcf123c7c8c1f93e1c0c_VO3lJR0.jpg\",\n        \"company\": 6\n    },\n    {\n        \"id\": 5,\n        \"company_image\": \"/media/company_images/1209999.png\",\n        \"company\": 6\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "delete single image",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/company/6/images/4/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"company",
+										"6",
+										"images",
+										"4",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete single image",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/company/6/images/4/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"company",
+												"6",
+												"images",
+												"4",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\"message\": \"successful\"}"
+								}
+							]
+						},
+						{
+							"name": "delete all images",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/company/6/images/delete-all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"company",
+										"6",
+										"images",
+										"delete-all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete all images",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/company/6/images/delete-all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"company",
+												"6",
+												"images",
+												"delete-all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\"message\": \"successful\"}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "business-stream",
+					"item": [
+						{
+							"name": "get all streams",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/business-stream/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"business-stream",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all streams",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/business-stream/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"business-stream",
+												"all",
+												""
+											],
+											"query": [
+												{
+													"key": null,
+													"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"business_stream_name\": \"Аутсорсингова компанія\",\n        \"business_stream_english_name\": \"Outsourcing company\"\n    },\n    {\n        \"id\": 2,\n        \"business_stream_name\": \"Продуктова компанія\",\n        \"business_stream_english_name\": \"Food company\"\n    },\n    {\n        \"id\": 3,\n        \"business_stream_name\": \"Інженерна компанія\",\n        \"business_stream_english_name\": \"Engineering company\"\n    },\n    {\n        \"id\": 4,\n        \"business_stream_name\": \"Венчурна компанія\",\n        \"business_stream_english_name\": \"Venture capital company\"\n    },\n    {\n        \"id\": 5,\n        \"business_stream_name\": \"Господарське товариство\",\n        \"business_stream_english_name\": \"Business company\"\n    },\n    {\n        \"id\": 6,\n        \"business_stream_name\": \"Інвестиційна компанія\",\n        \"business_stream_english_name\": \"Investment company\"\n    },\n    {\n        \"id\": 7,\n        \"business_stream_name\": \"Офшорна компанія\",\n        \"business_stream_english_name\": \"Offshore\"\n    },\n    {\n        \"id\": 8,\n        \"business_stream_name\": \"Приватна компанія\",\n        \"business_stream_english_name\": \"Private company\"\n    },\n    {\n        \"id\": 9,\n        \"business_stream_name\": \"Публічна компанія\",\n        \"business_stream_english_name\": \"Public company\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "jobs",
+					"item": [
+						{
+							"name": "get company jobs",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/company/api/company/4/jobs/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"company",
+										"api",
+										"company",
+										"4",
+										"jobs",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get company jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token d4a12fb429af62e3ce93a025fe61d6bd9b1944d3",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/company/api/company/4/jobs/?=",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"company",
+												"api",
+												"company",
+												"4",
+												"jobs",
+												""
+											],
+											"query": [
+												{
+													"key": null,
+													"value": ""
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 5,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 1,\n        \"salary\": null,\n        \"created_date\": \"2023-03-06\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 3,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 0,\n        \"salary\": null,\n        \"created_date\": \"2023-03-06\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 2,\n        \"job_title\": \"Django developer\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 1,\n        \"salary\": 1000,\n        \"created_date\": \"2023-03-07\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 4,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 2,\n        \"salary\": 2000,\n        \"created_date\": \"2023-03-07\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "job type",
+					"item": [
+						{
+							"name": "get all job types",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-type/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-type",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all job types",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-type/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-type",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"job_type\": \"Бізнес-адміністрування та управління\",\n        \"job_type_english\": \"Business administration and management\"\n    },\n    {\n        \"id\": 2,\n        \"job_type\": \"Фінансові послуги\",\n        \"job_type_english\": \"Financial services\"\n    },\n    {\n        \"id\": 3,\n        \"job_type\": \"ІТ та комп'ютерні науки\",\n        \"job_type_english\": \"IT and computer science\"\n    },\n    {\n        \"id\": 4,\n        \"job_type\": \"Маркетинг і реклама\",\n        \"job_type_english\": \"Marketing and advertising\"\n    },\n    {\n        \"id\": 5,\n        \"job_type\": \"Екологія та сільське господарство\",\n        \"job_type_english\": \"Environmental and agricultural\"\n    },\n    {\n        \"id\": 6,\n        \"job_type\": \"Наука та математика\",\n        \"job_type_english\": \"Science and mathematics\"\n    },\n    {\n        \"id\": 7,\n        \"job_type\": \"Мистецтво, ремесло та дизайн\",\n        \"job_type_english\": \"Art, craft and design\"\n    },\n    {\n        \"id\": 8,\n        \"job_type\": \"Волосся\",\n        \"job_type_english\": \"Hair and beauty\"\n    },\n    {\n        \"id\": 9,\n        \"job_type\": \"Освіта\",\n        \"job_type_english\": \"Education\"\n    },\n    {\n        \"id\": 10,\n        \"job_type\": \"Охорона здоров'я\",\n        \"job_type_english\": \"Health care\"\n    },\n    {\n        \"id\": 11,\n        \"job_type\": \"Гостинність і туризм\",\n        \"job_type_english\": \"Hospitality and tourism\"\n    },\n    {\n        \"id\": 12,\n        \"job_type\": \"Роздрібна торгівля та обслуговування клієнтів\",\n        \"job_type_english\": \"Retail and customer service\"\n    },\n    {\n        \"id\": 13,\n        \"job_type\": \"Транспорт і логістика\",\n        \"job_type_english\": \"Transport and logistics\"\n    },\n    {\n        \"id\": 14,\n        \"job_type\": \"Виробництво\",\n        \"job_type_english\": \"Manufacturing\"\n    },\n    {\n        \"id\": 15,\n        \"job_type\": \"Право\",\n        \"job_type_english\": \"Law\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one job type",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-type/one/1/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-type",
+										"one",
+										"1",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one job type",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-type/one/1/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-type",
+												"one",
+												"1",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"job_type\": \"Бізнес-адміністрування та управління\",\n    \"job_type_english\": \"Business administration and management\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "job post",
+					"item": [
+						{
+							"name": "get all jobs",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-type/one/1/?Authorization=Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-type",
+												"one",
+												"1",
+												""
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 5,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 1,\n        \"salary\": null,\n        \"created_date\": \"2023-03-06\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 3,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 0,\n        \"salary\": null,\n        \"created_date\": \"2023-03-06\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 2,\n        \"job_title\": \"Django developer\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 1,\n        \"salary\": 1000,\n        \"created_date\": \"2023-03-07\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    },\n    {\n        \"id\": 4,\n        \"job_title\": \"job_title2\",\n        \"is_company_name_hidden\": false,\n        \"experience_years_required\": 2,\n        \"salary\": 2000,\n        \"created_date\": \"2023-03-07\",\n        \"job_description\": \"job_description\",\n        \"is_active\": true,\n        \"posted_by\": 13,\n        \"job_type\": 1,\n        \"company\": 4\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one job",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/one/4/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"one",
+										"4",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one job",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/one/4/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"one",
+												"4",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 4,\n    \"job_title\": \"job_title2\",\n    \"is_company_name_hidden\": false,\n    \"experience_years_required\": 2,\n    \"salary\": 2000,\n    \"created_date\": \"2023-03-07\",\n    \"job_description\": \"job_description\",\n    \"is_active\": true,\n    \"posted_by\": 13,\n    \"job_type\": 1,\n    \"company\": 4\n}"
+								}
+							]
+						},
+						{
+							"name": "create job",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"job_title\":\"job- title\",\n    \"job_type\": 1,\n    \"company\": 4,\n    \"is_company_name_hidden\":false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"job_description\":\"job_description\",\n    \"is_active\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create job",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"job_title\":\"job- title\",\n    \"job_type\": 1, (required)\n    \"company\": 4, (required)\n    \"is_company_name_hidden\":false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"job_description\":\"job_description\",\n    \"is_active\":true\n}"
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 8,\n    \"job_title\": \"job- title\",\n    \"is_company_name_hidden\": false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"created_date\": \"2023-03-08\",\n    \"job_description\": \"job_description\",\n    \"is_active\": true,\n    \"posted_by\": 13,\n    \"job_type\": 1,\n    \"company\": 4\n}"
+								}
+							]
+						},
+						{
+							"name": "edit job",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "",
+										"value": "job- title",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "job_type",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "company",
+										"value": "4",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "is_company_name_hidden",
+										"value": "false",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "experience_years_required",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "salary",
+										"value": "2000",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "job_description",
+										"value": "job_description",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "is_active",
+										"value": "true",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"job_title\":\"job- title\",\n    \"job_type\": 1,\n    \"is_company_name_hidden\":false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"job_description\":\"job_description\",\n    \"is_active\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/8/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"8",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit job",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "",
+												"value": "job- title",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "job_type",
+												"value": "1",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "is_company_name_hidden",
+												"value": "false",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "experience_years_required",
+												"value": "1",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "salary",
+												"value": "2000",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "job_description",
+												"value": "job_description",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "is_active",
+												"value": "true",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"job_title\":\"job- title\",\n    \"job_type\": 1,\n    \"is_company_name_hidden\":false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"job_description\":\"job_description\",\n    \"is_active\":true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/8/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"8",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 8,\n    \"job_title\": \"job- title\",\n    \"is_company_name_hidden\": false,\n    \"experience_years_required\": 1,\n    \"salary\": 2000,\n    \"created_date\": \"2023-03-08\",\n    \"job_description\": \"job_description\",\n    \"is_active\": true,\n    \"posted_by\": 13,\n    \"job_type\": 1,\n    \"company\": 4\n}"
+								}
+							]
+						},
+						{
+							"name": "delete job",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/8/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"8",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete job",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/8/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"8",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "job activity",
+					"item": [
+						{
+							"name": "get job activity",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/8/activity/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"8",
+										"activity",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get job activity",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/8/activity/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"8",
+												"activity",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"apply_date\": \"2023-03-08\",\n    \"edited_date\": \"2023-03-08\",\n    \"job_post\": 8\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "job location",
+					"item": [
+						{
+							"name": "get all job locations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"3",
+										"location",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all job locations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"3",
+												"location",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 4,\n        \"street_address\": \"street_address\",\n        \"city\": \"Kyiv\",\n        \"state\": \"Kyivska\",\n        \"country\": \"Ukraine\",\n        \"zip\": \"\",\n        \"job_post\": 3\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one job location",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/one/4/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"3",
+										"location",
+										"one",
+										"4",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one job location",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/one/4/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"3",
+												"location",
+												"one",
+												"4",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 4,\n    \"street_address\": \"street_address\",\n    \"city\": \"Kyiv\",\n    \"state\": \"Kyivska\",\n    \"country\": \"Ukraine\",\n    \"zip\": \"\",\n    \"job_post\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "create job location",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"street_address\":\"street_address\",\n    \"city\":\"city\",\n    \"state\":\"state\", \n    \"country\":\"country\",\n    \"zip\":\"zip\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"3",
+										"location",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create job location",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"street_address\":\"street_address\",\n    \"city\":\"city\",\n    \"state\":\"state\", \n    \"country\":\"country\",\n    \"zip\":\"zip\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"3",
+												"location",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"street_address\": \"street_address\",\n    \"city\": \"city\",\n    \"state\": \"state\",\n    \"country\": \"country\",\n    \"zip\": \"zip\",\n    \"job_post\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "edit job location",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"street_address\":\"street_address\",\n    \"city\":\"city\",\n    \"state\":\"state\", \n    \"country\":\"country\",\n    \"zip\":\"zip\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/6/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"3",
+										"location",
+										"6",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit job location",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"street_address\":\"street_address\",\n    \"city\":\"city\",\n    \"state\":\"state\", \n    \"country\":\"country\",\n    \"zip\":\"zip\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/6/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"3",
+												"location",
+												"6",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"street_address\": \"street_address\",\n    \"city\": \"city\",\n    \"state\": \"state\",\n    \"country\": \"country\",\n    \"zip\": \"zip\",\n    \"job_post\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "delete job location",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/6/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"3",
+										"location",
+										"6",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete job location",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/3/location/6/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"3",
+												"location",
+												"6",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "job skillset",
+					"item": [
+						{
+							"name": "get job skillset",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/4/skillset/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"4",
+										"skillset",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get job skillset",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/4/skillset/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"4",
+												"skillset",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 7,\n        \"skillset_name\": \"API\",\n        \"skill_level\": 5,\n        \"skill_set\": 1,\n        \"job_post\": 4\n    },\n    {\n        \"id\": 8,\n        \"skillset_name\": \"Angular.js\",\n        \"skill_level\": 5,\n        \"skill_set\": 2,\n        \"job_post\": 4\n    },\n    {\n        \"id\": 9,\n        \"skillset_name\": \"Apache\",\n        \"skill_level\": 5,\n        \"skill_set\": 3,\n        \"job_post\": 4\n    },\n    {\n        \"id\": 13,\n        \"skillset_name\": \"Django\",\n        \"skill_level\": 3,\n        \"skill_set\": 13,\n        \"job_post\": 4\n    },\n    {\n        \"id\": 14,\n        \"skillset_name\": \"Python\",\n        \"skill_level\": 4,\n        \"skill_set\": 14,\n        \"job_post\": 4\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "create job skillset",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": 5, \"level\":3\n    },\n    {\n        \"id\": 2, \"level\":3\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"5",
+										"skillset",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create job skillset",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"id\": 5, \"level\":3\n    },\n    {\n        \"id\": 2, \"level\":3\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"5",
+												"skillset",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"message\": \"successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "edit job skillset",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": 5, \"level\":5\n    },\n    {\n        \"id\": 2, \"level\":5\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"5",
+										"skillset",
+										"edit",
+										""
+									],
+									"query": [
+										{
+											"key": "Authorization",
+											"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit job skillset",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"id\": 5, \"level\":5\n    },\n    {\n        \"id\": 2, \"level\":5\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"5",
+												"skillset",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"message\": \"successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete job skillset",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"job-post",
+										"5",
+										"skillset",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete job skillset",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/job-post/5/skillset/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"job-post",
+												"5",
+												"skillset",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"message\": \"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "conversation",
+					"item": [
+						{
+							"name": "get all conversations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"all",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all conversations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"all",
+												""
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"creation_date\": \"2023-03-01T19:44:33.254020Z\",\n        \"job\": 4,\n        \"employer\": 13,\n        \"seeker\": 19\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one conversation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/one/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"one",
+										"2",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one conversation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/one/2/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"one",
+												"2",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"creation_date\": \"2023-03-01T19:44:33.254020Z\",\n        \"job\": 4,\n        \"employer\": 13,\n        \"seeker\": 19\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "create conversation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/job/5/create/employer/12/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"job",
+										"5",
+										"create",
+										"employer",
+										"12",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create conversation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/job/5/create/employer/12/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"job",
+												"5",
+												"create",
+												"employer",
+												"12",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"job\": 5,\n    \"employer\": 13,\n    \"seeker\": 12,\n    \"id\": 3\n}"
+								}
+							]
+						},
+						{
+							"name": "delete conversation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/one/3/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"one",
+										"3",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete conversation",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/one/3/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"one",
+												"3",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "conversation message",
+					"item": [
+						{
+							"name": "get all messages for conversation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"2",
+										"messages",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all messages for conversation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"2",
+												"messages",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"message\": \"some mesasage 1\",\n            \"timestamp\": \"2023-03-02T06:30:56.324052Z\",\n            \"read\": false,\n            \"conversation\": 2,\n            \"from_user\": 13,\n            \"to_user\": 19,\n            \"parent\": null\n        },\n        {\n            \"id\": 2,\n            \"message\": \"some mesasage w\",\n            \"timestamp\": \"2023-03-02T06:32:19.120968Z\",\n            \"read\": false,\n            \"conversation\": 2,\n            \"from_user\": 13,\n            \"to_user\": 19,\n            \"parent\": null\n        },\n        {\n            \"id\": 3,\n            \"message\": \"some mesasage 3\",\n            \"timestamp\": \"2023-03-02T06:32:24.326621Z\",\n            \"read\": false,\n            \"conversation\": 2,\n            \"from_user\": 13,\n            \"to_user\": 19,\n            \"parent\": null\n        },\n        {\n            \"id\": 4,\n            \"message\": \"some mesasage 3\",\n            \"timestamp\": \"2023-03-02T06:32:32.145961Z\",\n            \"read\": false,\n            \"conversation\": 2,\n            \"from_user\": 19,\n            \"to_user\": 13,\n            \"parent\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get one message for conversation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/one/3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"2",
+										"messages",
+										"one",
+										"3",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one message for conversation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/one/3/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"2",
+												"messages",
+												"one",
+												"3",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 3,\n    \"message\": \"some mesasage 3\",\n    \"timestamp\": \"2023-03-02T06:32:24.326621Z\",\n    \"read\": false,\n    \"conversation\": 2,\n    \"from_user\": 13,\n    \"to_user\": 19,\n    \"parent\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "add message to conversation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"from_user\":13,\n   \"to_user\":12,\n   \"message\":\"this is a message\",\n    \"parent\":null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"2",
+										"messages",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add message to conversation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"from_user\":13,\n   \"to_user\":12,\n   \"message\":\"this is a message\",\n    \"parent\":null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"2",
+												"messages",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"message\": \"this is a message\",\n    \"timestamp\": \"2023-03-08T19:13:27.242704Z\",\n    \"read\": false,\n    \"conversation\": 2,\n    \"from_user\": 13,\n    \"to_user\": 12,\n    \"parent\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "edit message to conversation",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"from_user\":13,\n   \"to_user\":12,\n   \"message\":\"this is a message edit\",\n    \"parent\":null,\n    \"read\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/6/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"2",
+										"messages",
+										"6",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit message to conversation",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"from_user\":13,\n   \"to_user\":12,\n   \"message\":\"this is a message edit\",\n    \"parent\":null,\n    \"read\":true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/6/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"2",
+												"messages",
+												"6",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"message\": \"this is a message edit\",\n    \"timestamp\": \"2023-03-08T19:13:27.242704Z\",\n    \"read\": true,\n    \"conversation\": 2,\n    \"from_user\": 13,\n    \"to_user\": 12,\n    \"parent\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "delete message from conversation",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/6/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"job",
+										"api",
+										"conversation",
+										"2",
+										"messages",
+										"6",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete message from conversation",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 9aa89d436cfcb27d85f6b0881f8310c8463c988b",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/job/api/conversation/2/messages/6/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"job",
+												"api",
+												"conversation",
+												"2",
+												"messages",
+												"6",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "seeker",
+			"item": [
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "get profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/profile/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"profile",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get profile",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/profile/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"profile",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"first_name\": \"Yaroslav\",\n    \"last_name\": \"Dykhanov\",\n    \"current_salary\": null,\n    \"is_annually_monthly\": true,\n    \"currency\": null,\n    \"user_account\": 12\n}"
+								}
+							]
+						},
+						{
+							"name": "edit profile",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\":\"first_name\",\n    \"last_name\":\"last_name\",\n    \"current_salary\":1000,\n    \"is_annually_monthly\": true,\n    \"currency\":\"$\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/profile/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"profile",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit profile",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\":\"first_name\",\n    \"last_name\":\"last_name\",\n    \"current_salary\":1000,\n    \"is_annually_monthly\": true,\n    \"currency\":\"$\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/profile/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"profile",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 6,\n    \"first_name\": \"first_name\",\n    \"last_name\": \"last_name\",\n    \"current_salary\": 1000,\n    \"is_annually_monthly\": true,\n    \"currency\": \"$\",\n    \"user_account\": 12\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "seeker education",
+					"item": [
+						{
+							"name": "get all seeker educations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/education/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"education",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all seeker educations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/education/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"education",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 5,\n        \"certificate_degree_name\": \"certificate_degree_name\",\n        \"major\": \"bachelor\",\n        \"institute_university_name\": \"kpi\",\n        \"starting_date\": \"2020-09-21\",\n        \"completion_date\": \"2024-06-30\",\n        \"percentage\": \"0.65\",\n        \"cgpa\": 85.0,\n        \"profile_account\": 6\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "add one seeker education",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/education/one/5/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"education",
+										"one",
+										"5",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add one seeker education",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/education/one/5/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"education",
+												"one",
+												"5",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 5,\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\": \"bachelor\",\n    \"institute_university_name\": \"kpi\",\n    \"starting_date\": \"2020-09-21\",\n    \"completion_date\": \"2024-06-30\",\n    \"percentage\": \"0.65\",\n    \"cgpa\": 85.0,\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "add seeker education",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\":\"bachelor\",\n    \"institute_university_name\":\"kpi\",\n    \"starting_date\":\"2020-09-21\",\n    \"completion_date\" : \"2024-06-30\",\n    \"cgpa\": 85\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/education/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"education",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add seeker education",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\":\"bachelor\",\n    \"institute_university_name\":\"kpi\",\n    \"starting_date\":\"2020-09-21\",\n    \"completion_date\" : \"2024-06-30\",\n    \"cgpa\": 85\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/education/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"education",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 4,\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\": \"bachelor\",\n    \"institute_university_name\": \"kpi\",\n    \"starting_date\": \"2020-09-21\",\n    \"completion_date\": \"2024-06-30\",\n    \"percentage\": 0.6523947750362844,\n    \"cgpa\": 85.0,\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "edit seeker education",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\":\"bachelor\",\n    \"institute_university_name\":\"kpi\",\n    \"starting_date\":\"2020-09-21\",\n    \"completion_date\" : \"2024-06-30\",\n    \"cgpa\": 90\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/education/5/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"education",
+										"5",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit seeker education",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\":\"bachelor\",\n    \"institute_university_name\":\"kpi\",\n    \"starting_date\":\"2020-09-21\",\n    \"completion_date\" : \"2024-06-30\",\n    \"cgpa\": 90\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/education/5/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"education",
+												"5",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 5,\n    \"certificate_degree_name\": \"certificate_degree_name\",\n    \"major\": \"bachelor\",\n    \"institute_university_name\": \"kpi\",\n    \"starting_date\": \"2020-09-21\",\n    \"completion_date\": \"2024-06-30\",\n    \"cgpa\": 90.0,\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "delete seeker education",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/education/5/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"education",
+										"5",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete seeker education",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/education/5/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"education",
+												"5",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "seeker experience",
+					"item": [
+						{
+							"name": "get all seeker experience",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/experience/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"experience",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all seeker experience",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/experience/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"experience",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"is_current_job\": null,\n        \"start_date\": \"2022-04-17\",\n        \"end_date\": \"2023-04-16\",\n        \"job_title\": \"1\",\n        \"company_name\": \"Job title\",\n        \"job_location_city\": \"1\",\n        \"job_location_state\": \"1\",\n        \"job_location_country\": \"1\",\n        \"description\": \"some job description\",\n        \"profile_account\": 6\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one seeker experience",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/experience/one/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"experience",
+										"one",
+										"2",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one seeker experience",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/experience/one/2/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"experience",
+												"one",
+												"2",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 2,\n    \"is_current_job\": null,\n    \"start_date\": \"2022-04-17\",\n    \"end_date\": \"2023-04-16\",\n    \"job_title\": \"1\",\n    \"company_name\": \"Job title\",\n    \"job_location_city\": \"1\",\n    \"job_location_state\": \"1\",\n    \"job_location_country\": \"1\",\n    \"description\": \"some job description\",\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "create seeker experience",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_current_job\": true,\n    \"start_date\":\"2022-04-17\",\n    \"end_date\":null,\n    \"job_title\":\"php web developer\",\n    \"company_name\" : \"GlobalLogic\",\n    \"job_location_city\":\"Kyiv\",\n    \"job_location_state\":\"kyivska\",\n    \"job_location_country\":\"Ukraine\",\n    \"description\":\"description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/experience/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"experience",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create seeker experience",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"is_current_job\": true,\n    \"start_date\":\"2022-04-17\",\n    \"end_date\":null,\n    \"job_title\":\"php web developer\",\n    \"company_name\" : \"GlobalLogic\",\n    \"job_location_city\":\"Kyiv\",\n    \"job_location_state\":\"kyivska\",\n    \"job_location_country\":\"Ukraine\",\n    \"description\":\"description\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/experience/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"experience",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 4,\n    \"is_current_job\": true,\n    \"start_date\": \"2022-04-17\",\n    \"end_date\": null,\n    \"job_title\": \"php web developer\",\n    \"company_name\": \"GlobalLogic\",\n    \"job_location_city\": \"Kyiv\",\n    \"job_location_state\": \"kyivska\",\n    \"job_location_country\": \"Ukraine\",\n    \"description\": \"description\",\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "edit seeker experience",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_current_job\": true,\n    \"start_date\":\"2022-04-17\",\n    \"end_date\":null,\n    \"job_title\":\"php web developer\",\n    \"company_name\" : \"GlobalLogic\",\n    \"job_location_city\":\"Kyiv\",\n    \"job_location_state\":\"kyivska\",\n    \"job_location_country\":\"Ukraine\",\n    \"description\":\"description edited\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/experience/4/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"experience",
+										"4",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit seeker experience",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"is_current_job\": true,\n    \"start_date\":\"2022-04-17\",\n    \"end_date\":null,\n    \"job_title\":\"php web developer\",\n    \"company_name\" : \"GlobalLogic\",\n    \"job_location_city\":\"Kyiv\",\n    \"job_location_state\":\"kyivska\",\n    \"job_location_country\":\"Ukraine\",\n    \"description\":\"description edited\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/experience/4/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"experience",
+												"4",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 4,\n    \"is_current_job\": true,\n    \"start_date\": \"2022-04-17\",\n    \"end_date\": null,\n    \"job_title\": \"php web developer\",\n    \"company_name\": \"GlobalLogic\",\n    \"job_location_city\": \"Kyiv\",\n    \"job_location_state\": \"kyivska\",\n    \"job_location_country\": \"Ukraine\",\n    \"description\": \"description edited\",\n    \"profile_account\": 6\n}"
+								}
+							]
+						},
+						{
+							"name": "delete seeker experience",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/experience/4/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"experience",
+										"4",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete seeker experience",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/experience/4/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"experience",
+												"4",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "skillset",
+					"item": [
+						{
+							"name": "get all skillsets",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/skillset/all/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"skillset",
+										"all",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all skillsets",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/skillset/all/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"skillset",
+												"all",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"API\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Angular.js\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Apache\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Backbone.js\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Bootstrap\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"C++\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"HTML\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"CSS\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"postgreSQL\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"mySQL\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"mongoDB\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"SQLite\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"Django\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Python\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"Flask\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"Fast-api\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Express.js\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"JavaScript\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"java\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Node.js\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"Git\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Swift\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"jQuery\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"JSON\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"Linux\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"OOP\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"php\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"ruby\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"Laravel\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"React JS\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"React Native\"\n    },\n    {\n        \"id\": 32,\n        \"name\": \"REST API\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"Ruby on Rails\"\n    },\n    {\n        \"id\": 34,\n        \"name\": \"SASS\"\n    },\n    {\n        \"id\": 35,\n        \"name\": \"LESS\"\n    },\n    {\n        \"id\": 36,\n        \"name\": \"Sprint\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get one skillset",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/skillset/one/12/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"skillset",
+										"one",
+										"12",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get one skillset",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/skillset/one/12/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"skillset",
+												"one",
+												"12",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"id\": 12,\n    \"name\": \"SQLite\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "seeker skillset",
+					"item": [
+						{
+							"name": "get seeker skillset",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker-skillset",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get seeker skillset",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker-skillset",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 6,\n        \"skill_set\": {\n            \"id\": 1,\n            \"name\": \"API\"\n        },\n        \"skill_level\": 4\n    },\n    {\n        \"id\": 7,\n        \"skill_set\": {\n            \"id\": 14,\n            \"name\": \"Python\"\n        },\n        \"skill_level\": 5\n    },\n    {\n        \"id\": 8,\n        \"skill_set\": {\n            \"id\": 13,\n            \"name\": \"Django\"\n        },\n        \"skill_level\": 4\n    },\n    {\n        \"id\": 9,\n        \"skill_set\": {\n            \"id\": 22,\n            \"name\": \"Swift\"\n        },\n        \"skill_level\": 3\n    },\n    {\n        \"id\": 10,\n        \"skill_set\": {\n            \"id\": 21,\n            \"name\": \"Git\"\n        },\n        \"skill_level\": 3\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "create seeker skillset",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n            \"id\": 1,\n        \"level\": 4\n    },\n    {\n            \"id\": 14,\n        \"evel\": 5\n    },\n    {\n            \"id\": 13,\n        \"level\": 4\n    },\n    {\n            \"id\": 22,\n        \"level\": 3\n    },\n    {\n            \"id\": 21,\n        \"level\": 3\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker-skillset",
+										"create",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create seeker skillset",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n            \"id\": 1,\n        \"level\": 4\n    },\n    {\n            \"id\": 14,\n        \"evel\": 5\n    },\n    {\n            \"id\": 13,\n        \"level\": 4\n    },\n    {\n            \"id\": 22,\n        \"level\": 3\n    },\n    {\n            \"id\": 21,\n        \"level\": 3\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/create/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker-skillset",
+												"create",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "edit seeker skillset",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n            \"id\": 1,\n        \"level\": 4\n    },\n    {\n            \"id\": 14,\n        \"level\": 5\n    },\n    {\n            \"id\": 13,\n        \"level\": 4\n    },\n    {\n            \"id\": 22,\n        \"level\": 3\n    },\n    {\n            \"id\": 21,\n        \"level\": 3\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/edit/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker-skillset",
+										"edit",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "edit seeker skillset",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n            \"id\": 1,\n        \"level\": 4\n    },\n    {\n            \"id\": 14,\n        \"level\": 5\n    },\n    {\n            \"id\": 13,\n        \"level\": 4\n    },\n    {\n            \"id\": 22,\n        \"level\": 3\n    },\n    {\n            \"id\": 21,\n        \"level\": 3\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/edit/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker-skillset",
+												"edit",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"result\": [\n        {\n            \"id\": 1,\n            \"level\": 4\n        },\n        {\n            \"id\": 14,\n            \"level\": 5\n        },\n        {\n            \"id\": 13,\n            \"level\": 4\n        },\n        {\n            \"id\": 22,\n            \"level\": 3\n        },\n        {\n            \"id\": 21,\n            \"level\": 3\n        }\n    ],\n    \"message\": \"Successful\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete seeker skillset",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker-skillset",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete seeker skillset",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker-skillset/delete/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker-skillset",
+												"delete",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\":\"successful\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "seeker jobs",
+					"item": [
+						{
+							"name": "get recommended jobs",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker/recommended-jobs/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker",
+										"recommended-jobs",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get recommended jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/recommended-jobs/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"recommended-jobs",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"job_title\": \"Django developer\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 1000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get searched jobs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"job_title2\",\n    \"technologies\":[1,2,3,12,13,14],\n    \"experience\":{\n        \"bottom\":0,\n        \"top\":2\n    },\n    \"salary\":{\n        \"bottom\":1000,\n        \"top\":5000\n    },\n    \"company_type\": [1,2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"seeker",
+										"api",
+										"seeker",
+										"jobs",
+										"search",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "all jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 5,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 8,\n            \"job_title\": \"job- title\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-08\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 2,\n            \"job_title\": \"Django developer\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 1000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 3,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 0,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 5,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "search by name",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\":\"job_title2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 5,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 3,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 0,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "search by technology",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"technologies\": [13,14]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"job_title\": \"Django developer\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 1000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "search by experience",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"experience\": {\n        \"bottom\":1,\n        \"top\":2\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 5,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 2,\n            \"job_title\": \"Django developer\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 1000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 8,\n            \"job_title\": \"job- title\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-08\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "search by salary",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"salary\": {\n        \"bottom\":2000,\n        \"top\":5000\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 8,\n            \"job_title\": \"job- title\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-08\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "search by company type",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"company_type\": [1,2]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 5,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 5,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 3,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 0,\n            \"salary\": null,\n            \"created_date\": \"2023-03-06\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 2,\n            \"job_title\": \"Django developer\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 1000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        },\n        {\n            \"id\": 8,\n            \"job_title\": \"job- title\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 1,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-08\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								},
+								{
+									"name": "all searches combined",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token 4c926a939c27542a6a0069fcc52b99df31851a2e",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\":\"job_title2\",\n    \"technologies\":[1,2,3,12,13,14],\n    \"experience\":{\n        \"bottom\":0,\n        \"top\":2\n    },\n    \"salary\":{\n        \"bottom\":1000,\n        \"top\":5000\n    },\n    \"company_type\": [1,2]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/seeker/api/seeker/jobs/search/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"seeker",
+												"api",
+												"seeker",
+												"jobs",
+												"search",
+												""
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 4,\n            \"job_title\": \"job_title2\",\n            \"is_company_name_hidden\": false,\n            \"experience_years_required\": 2,\n            \"salary\": 2000,\n            \"created_date\": \"2023-03-07\",\n            \"job_description\": \"job_description\",\n            \"is_active\": true,\n            \"posted_by\": 13,\n            \"job_type\": 1,\n            \"company\": 4\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

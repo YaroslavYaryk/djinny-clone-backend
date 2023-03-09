@@ -44,4 +44,4 @@ def filter_job_queryset_by_salary(queryset, data):
 
 
 def filter_job_queryset_by_company_type(queryset, data):
-    return queryset.filter(company__business_stream_id=data)
+    return queryset.filter(company__business_stream_id__in=data)

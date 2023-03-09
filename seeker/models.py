@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 from users.models import User
 
@@ -22,7 +24,7 @@ class EducationDetail(models.Model):
     institute_university_name = models.CharField(max_length=50, null=True)
     starting_date = models.DateField(null=True)
     completion_date = models.DateField(null=True)
-    percentage = models.FloatField(null=True)
+    percentage = models.DecimalField(max_digits=2, decimal_places=2, null=True)
     cgpa = models.FloatField(null=True)
 
     class Meta:
@@ -30,6 +32,16 @@ class EducationDetail(models.Model):
 
     def __str__(self):
         return f"account - {self.profile_account}, certificate degree - {self.certificate_degree_name}"
+
+    def save(self, *args, **kwargs):
+        # Check how the current values differ from ._loaded_values. For example,
+        # prevent changing the creator_id of the model. (This example doesn't
+        # support cases where 'creator_id' is deferred).
+        if self.starting_date and self.completion_date:
+            delta_studying = self.completion_date - self.starting_date
+            delta_completed = self.completion_date - date.today()
+            self.percentage = 1 - delta_completed / delta_studying
+        super().save(*args, **kwargs)
 
 
 class ExperienceDetails(models.Model):

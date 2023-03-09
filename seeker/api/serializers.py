@@ -10,10 +10,16 @@ class SeekerProfileSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class EducationDetailSerializer(serializers.ModelSerializer):
+class EducationDetailGETSerializer(serializers.ModelSerializer):
     class Meta:
         model = EducationDetail
         fields = "__all__"
+
+
+class EducationDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EducationDetail
+        exclude = ("percentage",)
 
 
 class ExperienceDetailSerializer(serializers.ModelSerializer):

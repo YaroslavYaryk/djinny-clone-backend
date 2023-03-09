@@ -26,10 +26,10 @@ urlpatterns = [
     path("skillset/one/<id>/", SkillSetAPIView.as_view(), name="get_one_skillset"),
 
     # seeker skillset
-    path("seeker_skillset/", SeekerSkillsetAPIView.as_view(), name="get_seeker_skillset"),
-    path("seeker_skillset/create/", SeekerSkillsetAPIView.as_view(), name="create_seeker_skillset"),
-    path("seeker_skillset/edit/", SeekerSkillsetAPIView.as_view(), name="edit_seeker_skillset"),
-    path("seeker_skillset/delete/", SeekerSkillsetAPIView.as_view(), name="delete_seeker_skillset"),
+    path("seeker-skillset/", SeekerSkillsetAPIView.as_view(), name="get_seeker_skillset"),
+    path("seeker-skillset/create/", SeekerSkillsetAPIView.as_view(), name="create_seeker_skillset"),
+    path("seeker-skillset/edit/", SeekerSkillsetAPIView.as_view(), name="edit_seeker_skillset"),
+    path("seeker-skillset/delete/", SeekerSkillsetAPIView.as_view(), name="delete_seeker_skillset"),
 
     # recommended jobs
     path("seeker/recommended-jobs/", RecommendedJobsAPIView.as_view(), name="get_seeker_recommended_jobs"),

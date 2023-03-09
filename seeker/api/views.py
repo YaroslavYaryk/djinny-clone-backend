@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 
 from .serializers import SeekerProfileSerializer, EducationDetailSerializer, ExperienceDetailSerializer, \
-    SkillSetSerializer, SeekerSkillsetGetSerializer
+    SkillSetSerializer, SeekerSkillsetGetSerializer, EducationDetailGETSerializer
 from .services import handle_seeker_profile, handle_seeker_education, static_fuctions, handle_seeker_experience, \
     handle_skillset, handle_seeker_job
 from job.api.serializers import JobPostSerializer
@@ -49,11 +49,11 @@ class EducationDetailsAPIView(BaseAPIView):
     def get(self, request, **kwargs):
         if kwargs:
             seeker_education = handle_seeker_education.get_one_education_for_user(request.user, pk=kwargs["id"])
-            serializer = EducationDetailSerializer(instance=seeker_education)
+            serializer = EducationDetailGETSerializer(instance=seeker_education)
         else:
 
             educations_queryset = handle_seeker_education.get_educations_for_user(request.user)
-            serializer = EducationDetailSerializer(educations_queryset, many=True)
+            serializer = EducationDetailGETSerializer(educations_queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -62,8 +62,9 @@ class EducationDetailsAPIView(BaseAPIView):
         data = {**request.data, "profile_account": seeker_profile.id}
         serializer = EducationDetailSerializer(data=data, partial=True)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            instance = serializer.save()
+            new_serializer = EducationDetailGETSerializer(instance=instance)
+            return Response(new_serializer.data, status=status.HTTP_201_CREATED)
         message = static_fuctions.get_errors_as_string(serializer)
         return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
 
@@ -105,8 +106,7 @@ class ExperienceDetailsAPIView(BaseAPIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        message = static_fuctions.get_errors_as_string(serializer)
-        return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
+        return Response({"message": serializer.errors}, status=status.HTTP_403_FORBIDDEN)
 
     def patch(self, request, pk):
         experience_object = handle_seeker_experience.get_experience_by_id(pk)
@@ -126,7 +126,7 @@ class ExperienceDetailsAPIView(BaseAPIView):
 
 
 # skillset
-class SkillSetAPIView(BaseAPIView):
+class SkillSetAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, **kwargs):
@@ -149,17 +149,17 @@ class SeekerSkillsetAPIView(BaseAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        data = static_fuctions.turn_js_list_objects_to_python(request.data)
+        data = handle_skillset.turn_js_list_objects_to_python(request.data, request.user)
         if data:
-            handle_skillset.add_skillsets_to_seeker_skillset(request.user, data)
+            handle_skillset.add_skillsets_to_seeker_skillset(data)
             return Response({"result": request.data, "message": "Successful"}, status=status.HTTP_200_OK)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
     def put(self, request):
-        data = static_fuctions.turn_js_list_objects_to_python(request.data)
+        data = handle_skillset.turn_js_list_objects_to_python(request.data, request.user)
         if data:
             handle_skillset.delete_seeker_skillset(request.user)
-            handle_skillset.add_skillsets_to_seeker_skillset(request.user, data)
+            handle_skillset.add_skillsets_to_seeker_skillset(data)
             return Response({"result": request.data, "message": "Successful"}, status=status.HTTP_200_OK)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
