@@ -9,19 +9,19 @@ vacancies for all seekers. Api documentation  [here](https://documenter.getpostm
 ### 💻Technologies:
 
 <div style="display:flex; align-items: center; gap:10px">
-    <img height="20" width="20" src="./images/python-logo.png"></img> Python
+    <img height="15" width="15" src="./images/python-logo.png"></img> Python
 </div>
 <div style="display:flex; align-items: center; gap:10px">
-    <img height="20" style="border-radius: 50%" width="20" src="./images/django.png"></img> Django
+    <img height="15" style="border-radius: 50%" width="15" src="./images/django.png"></img> Django
 </div>
 <div style="display:flex; align-items: center; gap:10px">
-    <img height="20" width="20" src="./images/api.png"></img> Django Rest Framework
+    <img height="15" width="15" src="./images/api.png"></img> Django Rest Framework
 </div><div style="display:flex; align-items: center; gap:10px">
-    <img height="20" width="20" src="./images/postgresql.png"></img> PostgreSQL
+    <img height="15" width="15" src="./images/postgresql.png"></img> PostgreSQL
 </div><div style="display:flex; align-items: center; gap:10px">
-    <img height="20" style="border-radius: 50%" width="20" src="./images/git.png"></img> Git
+    <img height="15" style="border-radius: 50%" width="15" src="./images/git.png"></img> Git
 </div></div><div style="display:flex; align-items: center; gap:10px">
-    <img height="20" width="20" src="./images/postman.248x256.png"></img> Postman
+    <img height="15" width="15" src="./images/postman.248x256.png"></img> Postman
 </div>
 
 ### 🧷Installation:
