@@ -7,8 +7,8 @@ urlpatterns = [
     path("companies/all/", CompanyAPIView.as_view(), name="get_all_companies"),
     path("companies/one/<id>/", CompanyAPIView.as_view(), name="get_one_company"),
     path("companies/create/", CompanyAPIView.as_view(), name="create_company"),
-    path("companies/<pk>/edit/", CompanyAPIView.as_view(), name="create_company"),
-    path("companies/<pk>/delete/", CompanyAPIView.as_view(), name="create_company"),
+    path("companies/<pk>/edit/", CompanyAPIView.as_view(), name="edit_company"),
+    path("companies/<pk>/delete/", CompanyAPIView.as_view(), name="delete_company"),
 
     # company images
     path("company/<pk>/images/", CompanyImagesAPIView.as_view(), name="get_company_images"),

@@ -43,8 +43,7 @@ class CompanyAPIView(BaseAPIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        message = static_fuctions.get_errors_as_string(serializer)
-        return Response({"message": message}, status=status.HTTP_403_FORBIDDEN)
+        return Response({"message": serializer.errors}, status=status.HTTP_403_FORBIDDEN)
 
     def patch(self, request, pk):
         company = handle_company.get_company_by_for_user_by_id(pk, request.user)
