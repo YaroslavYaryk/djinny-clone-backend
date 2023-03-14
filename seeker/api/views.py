@@ -152,7 +152,7 @@ class SeekerSkillsetAPIView(BaseAPIView):
         data = static_fuctions.turn_js_list_objects_to_python(request.data)
         if data:
             handle_skillset.add_skillsets_to_seeker_skillset(request.user, data)
-            return Response({"result": request.data, "message": "Successful"}, status=status.HTTP_200_OK)
+            return Response({"result": request.data, "message": "Successful"}, status=status.HTTP_201_CREATED)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
     def put(self, request):
