@@ -153,7 +153,7 @@ class JobSkillSetAPIView(BaseAPIView):
         if data:
             handle_job_skillset.delete_job_skillset(pk)
             handle_job_skillset.add_skillsets_to_job(data, pk)
-            return Response({"message": "successful"}, status=status.HTTP_201_CREATED)
+            return Response({"message": "successful"}, status=status.HTTP_200_OK)
         return Response({"message": "Invalid data"}, status=status.HTTP_403_FORBIDDEN)
 
     def delete(self, request, pk):
